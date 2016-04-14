@@ -80,9 +80,8 @@ public abstract class BaseScaleView extends View
 
         int width = wm.getDefaultDisplay().getWidth()/20;
         mScaleMargin = width;
-        mScaleHeight = ta.getDimensionPixelOffset(SCALE_HEIGHT, 20);
+        mScaleHeight = (int) ta.getDimension(R.styleable.ShenStyeable_scale_view_height, 20);
         ta.recycle();
-
         mScroller = new Scroller(getContext());
 
         initVar();

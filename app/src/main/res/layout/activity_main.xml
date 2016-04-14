@@ -14,7 +14,6 @@
         android:layout_marginTop="10dp"
         app:scale_view_max="40"
         app:scale_view_min="0"
-        app:scale_view_height="20dip"
         />
 
     <TextView

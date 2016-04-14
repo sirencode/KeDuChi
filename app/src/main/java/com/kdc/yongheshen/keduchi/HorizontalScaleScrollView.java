@@ -55,6 +55,7 @@ public class HorizontalScaleScrollView extends BaseScaleView {
         mMidCountScale = mScaleScrollViewRange / mScaleMargin / 2 + mMin;
     }
 
+    //画中间线  替换图
     @Override
     protected void onDrawLine(Canvas canvas, Paint paint) {
         canvas.drawLine(0, mRectHeight-mScaleHeight*2, mRectWidth, mRectHeight-mScaleHeight*2, paint);
@@ -68,6 +69,8 @@ public class HorizontalScaleScrollView extends BaseScaleView {
         int x = scla*width - mScrollLastX;
         smoothScrollBy(x,0);
     }
+
+    //长短分割线
     @Override
     protected void onDrawScale(Canvas canvas, Paint paint) {
 
@@ -88,6 +91,7 @@ public class HorizontalScaleScrollView extends BaseScaleView {
 
     }
 
+    // 指针 换成图片
     @Override
     protected void onDrawPointer(Canvas canvas, Paint paint) {
 
@@ -107,6 +111,7 @@ public class HorizontalScaleScrollView extends BaseScaleView {
         }
         canvas.drawLine(countScale * mScaleMargin + finalX, mRectHeight,
                 countScale * mScaleMargin + finalX, mRectHeight - mScaleMaxHeight - mScaleHeight, paint);
+       // canvas.drawBitmap();
     }
 
 
