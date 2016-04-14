@@ -12,12 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:scale_view_max="40"
+        app:scale_view_max="30"
         app:scale_view_min="0"
         app:scale_view_height="10dp"
         app:scale_view_interval="30dp"
         app:scale_systemscale="5"
-        app:scle_value="2000"
+        app:scle_value="1000"
+        app:scle_view_defaut="5"
         />
 
     <TextView
@@ -27,4 +28,21 @@
         android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add"
+        android:id="@+id/add"
+        android:layout_marginTop="81dp"
+        android:layout_below="@+id/horizontalScale"
+        android:layout_toLeftOf="@+id/horizontalScaleValue"
+        android:layout_toStartOf="@+id/horizontalScaleValue" android:layout_marginRight="42dp"
+        android:layout_marginEnd="42dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sub"
+        android:id="@+id/sub" android:layout_alignTop="@+id/add"
+        android:layout_toRightOf="@+id/horizontalScaleValue"
+        android:layout_toEndOf="@+id/horizontalScaleValue"/>
 </RelativeLayout>

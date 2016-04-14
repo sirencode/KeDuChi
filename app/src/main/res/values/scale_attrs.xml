@@ -3,6 +3,8 @@
     <declare-styleable name="ShenStyeable">
         <attr name="scale_view_max" format="integer" />
         <attr name="scale_view_min" format="integer" />
+        <!-- 初始值 -->
+        <attr name="scle_view_defaut" format="integer" />
         <!-- 刻度线高度的基数，短线的1/2 长线的1/3 -->
         <attr name="scale_view_height" format="dimension" />
         <!-- 刻度线之间间隔 -->

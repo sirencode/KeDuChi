@@ -41,16 +41,23 @@ public class HorizontalScaleScrollView extends BaseScaleView {
         this.setLayoutParams(lp);
         WindowManager wm = (WindowManager) getContext()
                 .getSystemService(Context.WINDOW_SERVICE);
-
         int width = wm.getDefaultDisplay().getWidth()/2;
-        smoothScrollBy(-width, 0);
+        if (mDefauteValue<=mMax && mDefauteValue>=mMin)
+        {
+            smoothScrollBy(-width+mDefauteValue*mScaleMargin, 0);
+        }
+        else {
+            System.out.println("HorizontalScaleScrollView 初始值不对！");
+        }
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int height=MeasureSpec.makeMeasureSpec(mRectHeight, MeasureSpec.AT_MOST);
         super.onMeasure(widthMeasureSpec, height);
+        //获取组件宽度
         mScaleScrollViewRange = getMeasuredWidth();
+        //中间值，当前值
         mTempScale = mScaleScrollViewRange / mScaleMargin / 2 + mMin;
         mMidCountScale = mScaleScrollViewRange / mScaleMargin / 2 + mMin;
     }
@@ -62,12 +69,11 @@ public class HorizontalScaleScrollView extends BaseScaleView {
     }
 
     public void ScrollTo(int scla){
-        WindowManager wm = (WindowManager) getContext()
-                .getSystemService(Context.WINDOW_SERVICE);
-
-        int width = wm.getDefaultDisplay().getWidth()/20;
-        int x = scla*width - mScrollLastX;
-        smoothScrollBy(x,0);
+        System.out.println(scla);
+        int x = (int) ((scla-mCountScale)* mScaleMargin);
+        System.out.println(x);
+        smoothScrollBy(x, 0);
+        postInvalidate();
     }
 
     //长短分割线
@@ -75,7 +81,6 @@ public class HorizontalScaleScrollView extends BaseScaleView {
     protected void onDrawScale(Canvas canvas, Paint paint) {
 
         paint.setTextSize(mRectHeight / 8);
-
 
         for (int i = 0, k = mMin; i <= mMax - mMin; i++) {
             if (i % mSystemScal == 0) { //整值

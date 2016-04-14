@@ -33,6 +33,7 @@ public abstract class BaseScaleView extends View
 
     protected int mSystemScal;//进制，隔几个一个长线
     protected float mScaleValue;//每个刻度的代表值的大小
+    protected int mDefauteValue;//初始刻度值
 
     protected Scroller mScroller;
     protected int mScrollLastX;
@@ -76,12 +77,13 @@ public abstract class BaseScaleView extends View
         WindowManager wm = (WindowManager) getContext()
                 .getSystemService(Context.WINDOW_SERVICE);
         //屏幕宽度的1/20，设置一屏幕指定格数
-        int width = wm.getDefaultDisplay().getWidth()/20;
-        mScaleMargin = width;
+        int width = wm.getDefaultDisplay().getWidth()/15;
+//        mScaleMargin = width;
         //属性设置指定大小
-//        mScaleMargin = (int)ta.getDimension(R.styleable.ShenStyeable_scale_view_interval,30);
+        mScaleMargin = (int)ta.getDimension(R.styleable.ShenStyeable_scale_view_interval,30);
         mSystemScal = ta.getInteger(R.styleable.ShenStyeable_scale_systemscale,10);
         mScaleValue = ta.getFloat(R.styleable.ShenStyeable_scle_value,1);
+        mDefauteValue = ta.getInteger(R.styleable.ShenStyeable_scle_view_defaut,(mMax-mMin)/2);
         ta.recycle();
         mScroller = new Scroller(getContext());
 
