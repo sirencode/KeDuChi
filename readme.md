@@ -1,5 +1,6 @@
 功能说明：
 实现横线比例尺滑动效果，效果图如下
+（如若无法显示，请点击或者查看KeDuChi/tree/master/app/src/main/raw此目录）
 
 ![diablo](https://github.com/sirencode/KeDuChi/tree/master/app/src/main/raw/a.png)
 
