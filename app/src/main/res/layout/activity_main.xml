@@ -10,10 +10,14 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/horizontalScaleValue"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:scale_view_max="40"
         app:scale_view_min="0"
+        app:scale_view_height="10dp"
+        app:scale_view_interval="30dp"
+        app:scale_systemscale="5"
+        app:scle_value="2000"
         />
 
     <TextView

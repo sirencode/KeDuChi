@@ -18,12 +18,6 @@ import android.widget.Scroller;
 public abstract class BaseScaleView extends View
 {
 
-
-    public static final int SCALE_MIN = 0;
-    public static final int SCALE_MAX = 1;
-    public static final int SCALE_MARGIN = 2;
-    public static final int SCALE_HEIGHT = 3;
-
     protected int mMax; //最大刻度
     protected int mMin; // 最小刻度
     protected int mCountScale; //滑动的总刻度
@@ -36,6 +30,9 @@ public abstract class BaseScaleView extends View
 
     protected int mRectWidth; //总宽度
     protected int mRectHeight; //高度
+
+    protected int mSystemScal;//进制，隔几个一个长线
+    protected float mScaleValue;//每个刻度的代表值的大小
 
     protected Scroller mScroller;
     protected int mScrollLastX;
@@ -75,12 +72,16 @@ public abstract class BaseScaleView extends View
         TypedArray ta = getContext().obtainStyledAttributes(attrs,R.styleable.ShenStyeable);
         mMin = ta.getInteger(R.styleable.ShenStyeable_scale_view_min, 0);
         mMax = ta.getInteger(R.styleable.ShenStyeable_scale_view_max, 30);
+        mScaleHeight = (int) ta.getDimension(R.styleable.ShenStyeable_scale_view_height, 20);
         WindowManager wm = (WindowManager) getContext()
                 .getSystemService(Context.WINDOW_SERVICE);
-
+        //屏幕宽度的1/20，设置一屏幕指定格数
         int width = wm.getDefaultDisplay().getWidth()/20;
         mScaleMargin = width;
-        mScaleHeight = (int) ta.getDimension(R.styleable.ShenStyeable_scale_view_height, 20);
+        //属性设置指定大小
+//        mScaleMargin = (int)ta.getDimension(R.styleable.ShenStyeable_scale_view_interval,30);
+        mSystemScal = ta.getInteger(R.styleable.ShenStyeable_scale_systemscale,10);
+        mScaleValue = ta.getFloat(R.styleable.ShenStyeable_scle_value,1);
         ta.recycle();
         mScroller = new Scroller(getContext());
 

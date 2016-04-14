@@ -18,16 +18,17 @@ public class MainActivity extends Activity
         Config.VALUE = 5000;
         mTvHorizontalScale = (TextView) findViewById(R.id.horizontalScaleValue);
 
-        HorizontalScaleScrollView scaleScrollView = (HorizontalScaleScrollView) findViewById(R.id.horizontalScale);
-        scaleScrollView.setOnScrollListener(new HorizontalScaleScrollView.OnScrollListener() {
+        final HorizontalScaleScrollView scaleScrollView = (HorizontalScaleScrollView) findViewById(R.id.horizontalScale);
+        scaleScrollView.setOnScrollListener(new HorizontalScaleScrollView.OnScrollListener()
+        {
+
             @Override
-            public void onScaleScroll(int scale) {
-                mTvHorizontalScale.setText("" + (scale*1000+Config.VALUE));
+            public void onScaleScroll(int scale)
+            {
+                mTvHorizontalScale.setText("" + (scale * scaleScrollView.mScaleValue + Config.VALUE));
             }
 
-
         });
-        scaleScrollView.ScrollTo(13);
     }
 }
 

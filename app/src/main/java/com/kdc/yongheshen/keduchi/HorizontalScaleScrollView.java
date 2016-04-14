@@ -74,16 +74,16 @@ public class HorizontalScaleScrollView extends BaseScaleView {
     @Override
     protected void onDrawScale(Canvas canvas, Paint paint) {
 
-        paint.setTextSize(mRectHeight / 4);
+        paint.setTextSize(mRectHeight / 8);
 
 
         for (int i = 0, k = mMin; i <= mMax - mMin; i++) {
-            if (i % 10 == 0) { //整值
+            if (i % mSystemScal == 0) { //整值
                 canvas.drawLine(i * mScaleMargin, mRectHeight, i * mScaleMargin, mRectHeight -
                         mScaleHeight*4, paint);
                 //整值文字
-                canvas.drawText(String.valueOf(k*1000+Config.VALUE), i * mScaleMargin, mRectHeight - mScaleMaxHeight - 40, paint);
-                k += 10;
+                canvas.drawText(String.valueOf((int)(k*mScaleValue+Config.VALUE)), i * mScaleMargin, mRectHeight - mScaleMaxHeight - 40, paint);
+                k += mSystemScal;
             } else {
                 canvas.drawLine(i * mScaleMargin, mRectHeight-mScaleHeight, i * mScaleMargin, mRectHeight - mScaleHeight*3, paint);
             }
