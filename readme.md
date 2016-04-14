@@ -1,9 +1,9 @@
 功能说明：
 实现横线比例尺滑动效果，效果图如下
 
-![image](https://github.com/sirencode/KeDuChi/tree/master/app/src/main/raw/a.png)
+![diablo](https://github.com/sirencode/KeDuChi/tree/master/app/src/main/raw/a.png)
 
-![image](https://github.com/sirencode/KeDuChi/tree/master/app/src/main/raw/b.png)
+![diablo](https://github.com/sirencode/KeDuChi/tree/master/app/src/main/raw/b.png)
 
 可动态设置
 比例尺的最大，最小尺度
