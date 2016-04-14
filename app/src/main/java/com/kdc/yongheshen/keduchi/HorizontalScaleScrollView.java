@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 /**
  * 作者： shenyonghe689 on 16/4/13.
@@ -39,16 +38,6 @@ public class HorizontalScaleScrollView extends BaseScaleView {
         // 设置layoutParams
         ViewGroup.MarginLayoutParams lp = new ViewGroup.MarginLayoutParams(mRectWidth, mRectHeight);
         this.setLayoutParams(lp);
-        WindowManager wm = (WindowManager) getContext()
-                .getSystemService(Context.WINDOW_SERVICE);
-        int width = wm.getDefaultDisplay().getWidth()/2;
-        if (mDefauteValue<=mMax && mDefauteValue>=mMin)
-        {
-            smoothScrollBy(-width+mDefauteValue*mScaleMargin, 0);
-        }
-        else {
-            System.out.println("HorizontalScaleScrollView 初始值不对！");
-        }
     }
 
     @Override
@@ -57,9 +46,26 @@ public class HorizontalScaleScrollView extends BaseScaleView {
         super.onMeasure(widthMeasureSpec, height);
         //获取组件宽度
         mScaleScrollViewRange = getMeasuredWidth();
+        System.out.println("空间宽度=====>" + mScaleScrollViewRange);
         //中间值，当前值
         mTempScale = mScaleScrollViewRange / mScaleMargin / 2 + mMin;
         mMidCountScale = mScaleScrollViewRange / mScaleMargin / 2 + mMin;
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh)
+    {
+        super.onSizeChanged(w, h, oldw, oldh);
+        int width = mScaleScrollViewRange/mScaleMargin/2;
+        if (mDefauteValue<=mMax && mDefauteValue>=mMin)
+        {
+            int x = (int) ((mDefauteValue-width)* mScaleMargin);
+            System.out.println("chushihua====>"+x+":::::"+mScaleMargin);
+            smoothScrollBy(x, 0);
+        }
+        else {
+            System.out.println("HorizontalScaleScrollView 初始值不对！");
+        }
     }
 
     //画中间线  替换图
@@ -69,7 +75,6 @@ public class HorizontalScaleScrollView extends BaseScaleView {
     }
 
     public void ScrollTo(int scla){
-        System.out.println(scla);
         int x = (int) ((scla-mCountScale)* mScaleMargin);
         System.out.println(x);
         smoothScrollBy(x, 0);

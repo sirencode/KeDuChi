@@ -80,7 +80,7 @@ public abstract class BaseScaleView extends View
         int width = wm.getDefaultDisplay().getWidth()/15;
 //        mScaleMargin = width;
         //属性设置指定大小
-        mScaleMargin = (int)ta.getDimension(R.styleable.ShenStyeable_scale_view_interval,30);
+        mScaleMargin = ta.getDimensionPixelSize(R.styleable.ShenStyeable_scale_view_interval,30);
         mSystemScal = ta.getInteger(R.styleable.ShenStyeable_scale_systemscale,10);
         mScaleValue = ta.getFloat(R.styleable.ShenStyeable_scle_value,1);
         mDefauteValue = ta.getInteger(R.styleable.ShenStyeable_scle_view_defaut,(mMax-mMin)/2);

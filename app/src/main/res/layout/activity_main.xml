@@ -15,7 +15,7 @@
         app:scale_view_max="30"
         app:scale_view_min="0"
         app:scale_view_height="10dp"
-        app:scale_view_interval="30dp"
+        app:scale_view_interval="25dp"
         app:scale_systemscale="5"
         app:scle_value="1000"
         app:scle_view_defaut="5"
